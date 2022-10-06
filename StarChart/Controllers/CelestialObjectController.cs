@@ -26,7 +26,8 @@ namespace StarChart.Controllers
                 return NotFound();
 
             var orbitedObject = _context.CelestialObjects.FirstOrDefault(e => e.Id == celestialObject.OrbitedObjectId);
-            celestialObject.Satellites.Add(orbitedObject);
+            if (orbitedObject != null)
+                celestialObject.Satellites.Add(orbitedObject);
 
             return Ok(celestialObject);
         }
@@ -39,7 +40,8 @@ namespace StarChart.Controllers
                 return NotFound();
 
             var orbitedObject = _context.CelestialObjects.FirstOrDefault(e => e.Id == celestialObject.OrbitedObjectId);
-            celestialObject.Satellites.Add(orbitedObject);
+            if (orbitedObject != null)
+                celestialObject.Satellites.Add(orbitedObject);
 
             return Ok(celestialObject);
 
